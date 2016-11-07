@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wikipedia Viewer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+
+  <div class="container containerCenter">
+    <div class="row searchArea">
+      <div class="col-xs-12 pageHeader">
+        <h1>Wikipedia Viewer</h1>
+      </div>
+      <div class="col-xs-12 randomArticle">
+        <button class="btn btn-xl btn-link">Click for a random article</button>
+      </div>
+    </div>
+    <div class="row searchRow">
+      <div class="col-xs-12 searchBox">
+        <form>
+          <div class="btn-group">
+            <input type="search" placeholder="Search Wikipedia" id="searchField" class="form-control input-xxlarge" autocomplete="off">
+            <span id="searchClear" class="glyphicon glyphicon-remove-circle"></span>
+          </div>
+          <button type="submit" id="searchButton" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </div>
+    <section id="searchResults">
+    </section>
+    <div class="row loadMoreRow">
+      <div class="col-xs-2 col-xs-offset-5 loadMoreCol">
+        <button id="loadMore" class="btn btn-primary btn-md"><i class="glyphicon glyphicon-chevron-down" style="display: block;"></i></button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+</html>

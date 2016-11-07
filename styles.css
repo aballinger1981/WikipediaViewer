@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Signika');
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+html {
+  min-height: 100%;
+  min-width: 100%;
+}
+
+body {
+  background-color: #f2f2f2;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.container {
+  min-height: 100%;
+}
+
+.containerCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.containerBackground {
+  background-color: white;  
+}
+
+h1 {
+  font-family: "Lora", serif;
+  font-weight: 600;
+  font-size: 4em;
+}
+
+.pageHeader, .searchBox, .randomArticle, .loadMoreCol {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+#searchClear {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.btn-link {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  height: 100%;
+  outline: none !important;
+}
+
+.btn-primary:focus {
+  outline: none !important;
+}
+
+.searchRow {
+  padding-bottom: 50px;
+}
+
+.resultsColumn {
+  margin-bottom: 25px;
+  padding-right: 0;
+  padding-left:0;
+  border-radius: 2px;
+}
+
+.pageTitle:hover {
+  border-left: 5px solid #ff9933;
+  margin-left: -5px;
+}
+
+.pageTitle {
+  font-family: 'Signika', sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  display: block;
+  background-color: #0047b3;
+  color: white;
+  padding: 5px 20px;
+  cursor: pointer;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.title:hover {
+  opacity: .7;
+  box-shadow: 0px 0px 10px #888888;
+}
+
+.pageSnippet {
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  display: block;
+  background-color: white;
+  border: 1px solid #0047b3;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.btn-link {
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+.loadMoreRow {
+  padding-top: 25px;
+}
+
+@media (min-width: 500px) {
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 499px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .pageTitle, .pageSnippet {
+    font-size: 1em;
+  }
+
+  .container {
+    padding-bottom: 25px;
+  }
+}
