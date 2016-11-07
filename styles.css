@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2 !important;
   background-repeat: no-repeat;
   min-height: 100vh;
 }
@@ -71,6 +71,15 @@ h1 {
 
 .searchRow {
   padding-bottom: 50px;
+}
+
+.numResults {
+  padding-bottom: 10px;
+}
+
+.resultsText {
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.75em;
 }
 
 .resultsColumn {

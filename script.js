@@ -4,7 +4,9 @@ $(document).ready(function () {
   $(".loadMoreRow").hide();
   var wikiData = [];
   var indexStart = 0;
-  var indexEnd = 0;
+  var indexEnd = 10;
+  var count = 0;
+  var html = "";
 
   function getWiki() {
     $.ajax({
@@ -14,14 +16,26 @@ $(document).ready(function () {
       headers: { 'Api-User-Agent': 'Example/1.0' },
       success: function (data) {
         wikiData = data.query.search;
-        showResults(data)
+        showFirstResults();
+        showResults(data);
       }
     });
   }
 
+  function showFirstResults() {
+    html += "<div class='row'><div class='col-xs-12 col-md-8 col-md-offset-2'><div class='numResults'><span class='resultsText'>&#39;";
+    html += wikiData.length;
+    html += "&#39;&nbsp;results found:</span ></div ></div ></div>";
+    $("#searchResults").append(html);
+    html = "";
+    $(".loadMoreRow").hide();
+  }
+
   function showResults(data) {
-    var html = "";
-    for (var i = indexStart; i < indexEnd + 10 && indexStart < wikiData.length; i++) {
+    if (wikiData.length !== 0) {
+      $(".loadMoreRow").hide();
+      for (var i = indexStart; i < indexEnd && indexStart < wikiData.length && i < wikiData.length; i++) {
+        console.log("hello");
         html += "<div class='row resultsRow'><div class='col-xs-12 col-md-8 col-md-offset-2 resultsColumn'><div class='title'><span class='pageTitle'>";
         html += wikiData[i].title;
         html += "</span></div><div class='snippet'><span class='pageSnippet'>";
@@ -29,16 +43,18 @@ $(document).ready(function () {
         html += "...</span></div></div></div>";
         $("#searchResults").append(html);
         html = "";
-    }
-    indexStart += 10;
-    indexEnd += 10;
-    if (indexEnd === wikiData.length) {
-      indexStart = 0;
-      indexEnd = 0;
-      $(".loadMoreRow").hide();
+      }
+      indexStart += 10;
+      indexEnd += 10;
+      if (indexEnd > wikiData.length && indexStart >= wikiData.length) {
+        $(".loadMoreRow").hide();
+      } else {
+        $(".loadMoreRow").show();
+      }
     } else {
-      $(".loadMoreRow").show();
+      $(".loadMoreRow").hide();
     }
+
     $(".container").addClass("containerBackground");
     $(".container").removeClass("containerCenter");
   }
@@ -50,7 +66,7 @@ $(document).ready(function () {
       wikiSearchTitle = encodeURI($("#searchField").val());
       $("#searchField").val("");
       indexStart = 0;
-      indexEnd = 0;
+      indexEnd = 10;
       $(".loadMoreRow").hide();
       getWiki();
     }
